@@ -31,22 +31,36 @@ let enableBox = () => {
     box.forEach(boxes => {
         boxes.disabled = false;
         boxes.innerText = "";
+        boxes.style.backgroundColor = "";
     });
-    console.log(box.innerText);
 }
+let drawGame = () => {
+    msg.innerText = `Opps, the game is draw`;
+    document.querySelector('.container').classList.add("blur");
+    msgDiv.style.display = 'block';
+}
+let count = 0;
 box.forEach((boxes) => {
     boxes.addEventListener("click", () => {
         console.log("btn was clicked");
         if (turn0) {
             boxes.innerText = "o";
+            boxes.style.color = "royalblue";
+            boxes.style.backgroundColor = "#10122b";
             turn0 = false;
         }
         else {
-            boxes.innerText = "x";
+            boxes.innerText = "x"; 
+            boxes.style.color = "tomato";
+            boxes.style.backgroundColor = "#10122b";
             turn0 = true;
         }
         boxes.disabled = true;
-        checkWinnner();
+        count++;
+        let isWinner = checkWinner();
+        if (count === 9 && !isWinner) {
+            drawGame();
+          }
     });
 });
 
@@ -55,7 +69,7 @@ let showWinner = (winner) => {
     document.querySelector('.container').classList.add("blur");
     msgDiv.style.display = 'block';
 };
-const checkWinnner = () => {
+const checkWinner = () => {
     for (let patterns of winPatterns) {
         let pos1Val = box[patterns[0]].innerText;
         let pos2Val = box[patterns[1]].innerText;
