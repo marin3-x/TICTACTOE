@@ -40,4 +40,4 @@ To use it run this cmd. Note you must have installed git to use this cmd else yo
 
 ## Future Plans
 
-Future plans about this project is that I am thinking of adding a backend to it to make it multiplayer and also add a new feature to the single player mode to play with computer.
+Future plans about this project is that I am thinking of adding a backend to it to make it multiplayer, a new feature to the single player mode to play with computer. And also make it a browser extension.
